@@ -41,4 +41,6 @@ Comment.init(
         underscored: true,
         modelName: 'message'
     }
-)
+);
+
+module.exports = Message;
