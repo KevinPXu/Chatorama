@@ -43,4 +43,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const messageData = await Message.findByPk(req.params.id);
+        res.status(200).json(messageData);
+    } catch (error) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
