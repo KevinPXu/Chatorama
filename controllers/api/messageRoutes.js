@@ -17,5 +17,18 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedMessageData = await Message.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(deletedMessageData);
+    } catch (error) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
