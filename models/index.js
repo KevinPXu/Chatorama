@@ -13,7 +13,7 @@ Chatroom.belongsToMany(User, { through: UserChat, foreignKey: "chatroom_id" });
 
 User.belongsToMany(Chatroom, { through: UserChat, foreignKey: "user_id" });
 
-Chatroom.hasMany(Message, foreignKey: 'chatroom_id');
+Chatroom.hasMany(Message, { foreignKey: "chatroom_id" });
 //message-chatroom
 Message.belongsTo(User, {
   foreignKey: "chatroom_id",
