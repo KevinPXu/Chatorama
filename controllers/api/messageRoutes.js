@@ -12,8 +12,8 @@ router.post('/', async (req, res) => {
         res.status(200).json(newMessageData);
 
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
@@ -26,8 +26,8 @@ router.delete('/:id', async (req, res) => {
         });
         res.status(200).json(deletedMessageData);
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
@@ -38,40 +38,39 @@ router.get('/', async (req, res) => {
         });
         res.status(200).json(messageData);
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
 router.get('/:id', async (req, res) => {
     try {
-        const messageData = await Message.findByPk(req.params.id);
+        const messageData = await Message.findByPk(req.params.id, {
+            include: [{
+                model: [User, Chatroom]
+            }]
+        });
         res.status(200).json(messageData);
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
 //create a route to get the latest message in a specific chat room
 
-router.get('/:chatroomid', async (req, res) => {
+router.get('/latest/:chatroomid', async (req, res) => {
     try {
         res.status(200).json(await Message.findOne({
             where: {
                 chatroom_id: req.params.chatroomid
             },
             order: [ [ 'id', 'DESC' ]],
-            include: [{
-                model: User,
-                attributes: {
-                    exclude: ['password']
-                },
-            }]
+            include: User
         }));
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 

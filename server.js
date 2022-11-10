@@ -17,11 +17,11 @@ const PORT = process.env.PORT || 3001;
 //creates a session and a cookie with a max age of 5 minutes and allows the storage of session information to that cookie
 const sess = {
   secret: "Shhhhhhhhhh",
-  resave: false,
   cookie: {
     maxAge: 300000,
   },
-  saveUninitialized: false,
+  resave: false,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),
