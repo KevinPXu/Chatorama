@@ -25,3 +25,25 @@ router.get("/login", async (req, res) => {
 
   res.render('login');
 })
+
+router.get('/chatroom/:chatroomid', async (req, res) => {
+  // get messages and associated name
+  // attach attribute for every message (isCurrentuser) that says whether it is from self or someone else
+  const messages = await Message.findAll({
+    where: {
+      chatroom_id: req.params.chatroomid
+    },
+    include: {
+      model: User,
+      attributes: { exclude: ['password'] }
+    }
+  });
+  console.log(messages);
+
+  res.status(200).json(messages);
+  // res.render('someChatroomHANDLEBAR!', {
+  //   messages
+  // })
+});
+
+module.exports = router;
