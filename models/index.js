@@ -8,14 +8,23 @@ Message.belongsTo(User, {
   foreignKey: "user_id",
 });
 
+User.hasMany(Message, {
+  foreignKey: "user_id",
+})
+
+
 //user-chatroom (thru UserChat)
 Chatroom.belongsToMany(User, { through: UserChat, foreignKey: "chatroom_id" });
 
 User.belongsToMany(Chatroom, { through: UserChat, foreignKey: "user_id" });
 
-Chatroom.hasMany(Message, { foreignKey: "chatroom_id" });
 //message-chatroom
-Message.belongsTo(User, {
+Message.belongsTo(Chatroom, {
+  onDelete: 'CASCADE',
+  foreignKey: "chatroom_id",
+});
+
+Chatroom.hasMany(Message, {
   foreignKey: "chatroom_id",
 });
 
