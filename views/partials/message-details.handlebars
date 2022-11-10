@@ -1,0 +1,10 @@
+{{#if is_this_user}}
+<div class="row justify-content-start message other-user">
+    <p class="username">{{user.username}}</p>
+{{else}}
+<div class="row justify-content-end message this-user">
+{{/if}}
+    <div class="message-box">
+        <p>{{text}}</p>
+    </div>
+</div>
