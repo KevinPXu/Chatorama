@@ -1,0 +1,7 @@
+{{#each messages as |message|}}
+{{> message-details}}
+{{/each}}
+<form class="form-inline">
+    <input type="input" class="form-control" id="message-bar" placeholder="Message">
+    <button type="submit" class="btn btn-primary ml-2">send</button>
+</form>
