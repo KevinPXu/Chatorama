@@ -8,7 +8,7 @@ const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 
 const routes = require("./controllers");
-const sequelize = require("./config/connection.js");
+const sequelize = require("./config/connection");
 
 const app = express();
 
@@ -19,7 +19,7 @@ const sess = {
   secret: "Shhhhhhhhhh",
   resave: false,
   cookie: {
-    maxAge: 600000,
+    maxAge: 300000,
   },
   saveUninitialized: false,
   store: new SequelizeStore({
