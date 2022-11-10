@@ -14,8 +14,9 @@ Chatroom.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
-    Owner_id: {
+    owner_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
