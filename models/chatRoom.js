@@ -23,9 +23,6 @@ Chatroom.init(
         key: "id",
       },
     },
-    Blacklist: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-    },
   },
   {
     sequelize,
