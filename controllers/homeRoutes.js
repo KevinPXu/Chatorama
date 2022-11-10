@@ -44,13 +44,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/login", async (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     // Change route to profile if we want to once it is created
-    res.redirect("/");
+    res.redirect('/');
+    return;
   }
 
-  res.render("login");
-});
+  res.render('login');
+})
 
-module.exports = router;
+module.exports = router
