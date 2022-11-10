@@ -20,6 +20,7 @@ User.belongsToMany(Chatroom, { through: UserChat, foreignKey: "user_id" });
 
 //message-chatroom
 Message.belongsTo(Chatroom, {
+  onDelete: 'CASCADE',
   foreignKey: "chatroom_id",
 });
 

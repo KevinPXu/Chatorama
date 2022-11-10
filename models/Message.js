@@ -26,6 +26,7 @@ Message.init(
         chatroom_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            onDelete: 'CASCADE',
             references: {
                 model: 'chatroom',
                 key: 'id'
