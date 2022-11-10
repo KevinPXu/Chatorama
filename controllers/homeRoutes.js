@@ -16,3 +16,12 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/login", async (req, res) => {
+  if (req.session.logged_in) {
+    // Change route to profile if we want to once it is created
+    res.redirect('/');
+  }
+
+  res.render('login');
+})
