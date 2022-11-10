@@ -27,9 +27,11 @@ router.get("/login", async (req, res) => {
 })
 
 router.get('/chatroom/:chatroomid', async (req, res) => {
+  //check if user exsts in chatroomid thru UserChat, if not add them!
+
   // get messages and associated name
-  // attach attribute for every message (isCurrentuser) that says whether it is from self or someone else
-  const messages = await Message.findAll({
+  // attach attribute for every message (is_this_user) that says whether it is from self or someone else
+  const messagesData = await Message.findAll({
     where: {
       chatroom_id: req.params.chatroomid
     },
@@ -38,12 +40,17 @@ router.get('/chatroom/:chatroomid', async (req, res) => {
       attributes: { exclude: ['password'] }
     }
   });
-  console.log(messages);
-
-  res.status(200).json(messages);
-  // res.render('someChatroomHANDLEBAR!', {
-  //   messages
-  // })
+  const messages = messagesData.map((msgdata) =>  msgdata.get({ plain: true }))
+  for(let i = 0; i < messages.length; i++) {
+    if(messages[i].user_id === req.session.user_id) {
+      messages[i].is_this_user = true;
+    } else {
+      messages[i].is_this_user = false;
+    }
+  }
+  res.render('chatroom', {
+    messages
+  })
 });
 
 module.exports = router;
