@@ -47,38 +47,52 @@ router.get("/", async (req, res) => {
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     // Change route to profile if we want to once it is created
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
 
-  res.render('login');
-})
+  res.render("login");
+});
 
-router.get('/chatroom/:chatroomid', async (req, res) => {
-  //check if user exsts in chatroomid thru UserChat, if not add them!
+router.get("/chatroom/:chatroomid", async (req, res) => {
+  //check if user exists in chatroomid thru UserChat, if not add them!
+  console.log(req.session.user_id);
+  const userChatData = await UserChat.findOne({
+    where: {
+      chatroom_id: req.params.chatroomid,
+      user_id: req.session.user_id,
+    },
+  });
+  console.log(userChatData);
+  if (!userChatData) {
+    UserChat.create({
+      chatroom_id: req.params.chatroomid,
+      user_id: req.session.user_id,
+    });
+  }
 
   // get messages and associated name
   // attach attribute for every message (is_this_user) that says whether it is from self or someone else
   const messagesData = await Message.findAll({
     where: {
-      chatroom_id: req.params.chatroomid
+      chatroom_id: req.params.chatroomid,
     },
     include: {
       model: User,
-      attributes: { exclude: ['password'] }
-    }
+      attributes: { exclude: ["password"] },
+    },
   });
-  const messages = messagesData.map((msgdata) =>  msgdata.get({ plain: true }))
-  for(let i = 0; i < messages.length; i++) {
-    if(messages[i].user_id === req.session.user_id) {
+  const messages = messagesData.map((msgdata) => msgdata.get({ plain: true }));
+  for (let i = 0; i < messages.length; i++) {
+    if (messages[i].user_id === req.session.user_id) {
       messages[i].is_this_user = true;
     } else {
       messages[i].is_this_user = false;
     }
   }
-  res.render('chatroom', {
-    messages
-  })
+  res.render("chatroom", {
+    messages,
+  });
 });
 
 module.exports = router;

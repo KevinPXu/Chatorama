@@ -24,6 +24,7 @@ router.post('/login', async (req, res) => { //logs in to an existing user
     const userData = await User.findOne({ where: { username: req.body.username } });
     
     if (!userData) {
+
       res
       .status(400)
       .json({ message: 'Incorrect Username or password, please try again' });
