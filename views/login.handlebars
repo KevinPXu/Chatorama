@@ -1,14 +1,14 @@
 <div class="login-container">
   <div class="flex-wrap-login">
-    <form class="valid-login" action="/process" method="POST">
+    <form id="login" class="valid-login" action="/process" method="POST">
       <span class="login-title"> Login </span>
 
       <div class="valid-input">
-        <input class="input" type="password" placeholder="Password" />
+        <input id="login-username" class="input" type="input" placeholder="Username" />
       </div>
 
       <div class="valid-input">
-        <input class="input" type="password" placeholder="Password" />
+        <input id="login-password" class="input" type="password" placeholder="Password" />
       </div>
 
       <br /><br />
@@ -18,3 +18,5 @@
     </form>
   </div>
 </div>
+
+<script src="/js/login.js"></script>
