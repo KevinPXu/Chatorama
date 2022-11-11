@@ -5,7 +5,7 @@ router.post('/', async (req, res) => {
     try {
         const newMessageData = await Message.create({
             text: req.body.text,
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
             chatroom_id: req.body.chatroom_id
         });
 

@@ -1,7 +1,8 @@
 {{#each messages as |message|}}
 {{> message-details}}
 {{/each}}
-<form class="form-inline">
+<form class="form-inline" id="message-form" data-chatid="{{chatroom_id}}">
     <input type="input" class="form-control" id="message-bar" placeholder="Message">
     <button type="submit" class="btn btn-primary ml-2">send</button>
 </form>
+<script src="/js/chatroom.js"></script>
