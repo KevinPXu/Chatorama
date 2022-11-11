@@ -26,16 +26,16 @@ router.get("/", async (req, res) => {
       chatrooms[i].latestMessageDate = message.createdDate;
     }
 
-    // for (let i = 0; i < chatrooms.length; i++) {
-    //   const userChatData = await UserChat.findAll({
-    //     Where: {
-    //       chatroom_id: chatrooms_id[i],
-    //     },
-    //   });
+    for (let i = 0; i < chatrooms.length; i++) {
+      const userChatData = await UserChat.findAll({
+        where: {
+          chatroom_id: chatrooms_id[i],
+        },
+      });
 
-    //   userCount.push(userChatData);
-    // }
-    // console.log(userCount);
+      const userChat = userChatData.map((user) => user.get({ plain: true }));
+      chatrooms[i].numUsers = userChat.length;
+    }
 
     res.status(200).render("homepage", { chatrooms });
   } catch (err) {
