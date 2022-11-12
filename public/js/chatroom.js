@@ -13,7 +13,7 @@ document.querySelector('#message-form').addEventListener('submit', async (event)
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            text.value = '';
+            document.querySelector('#message-bar').value = '';
             socket.emit('chatroomUpdate', { id: chatID });
             // document.location.replace(`/chatroom/${chatID}`);
         } else {
