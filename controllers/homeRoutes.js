@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
       chatrooms[i].numUsers = userChat.length;
     }
 
-    res.status(200).render("homepage", { chatrooms, logged_in: req.session.logged_in });
+    res.status(200).render("homepage", { chatrooms, logged_in: req.session.logged_in, current_user: req.session.user_id });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
