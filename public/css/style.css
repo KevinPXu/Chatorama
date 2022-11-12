@@ -55,7 +55,6 @@
 
 .other-user {
     background: var(--other-user-message);
-
 }
   
 .other-user-bottom:before {
@@ -86,4 +85,8 @@
     border-bottom: 7px solid transparent;
     right: 7px;
     bottom: -7px;
+}
+
+#message-form {
+    justify-content: right;
 }
