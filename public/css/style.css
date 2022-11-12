@@ -32,3 +32,7 @@
     margin-top: 4px;
     margin-bottom: 4px;
 }
+
+#logout {
+    border-width: 0px;
+}
