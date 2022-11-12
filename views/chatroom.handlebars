@@ -1,7 +1,9 @@
-<div id="message-list">
-{{#each messages as |message|}}
-{{> message-details}}
-{{/each}}
+<div class="overflow-auto scrollable-content mh-75">
+    <div  class="container" id="message-list">
+        {{#each messages as |message|}}
+        {{> message-details}}
+        {{/each}}
+    </div>
 </div>
 <form class="form-inline" id="message-form" data-chatid="{{chatroom_id}}" data-userid="{{current_user}}">
     <input type="input" class="form-control" id="message-bar" placeholder="Message">

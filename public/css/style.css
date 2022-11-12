@@ -1,92 +1,130 @@
 :root {
-    --banner-main: #F0B67F;
-    --title-main: #FE5F55;
-    --button-main: #D9D9D9;
-    --background-main: #EEF5DB;
-    --chatroom: #C7EFCF;
-    --this-user-message: #C7EFCF;
-    --other-user-message: #808080;
-    --text-input: #ADD8E6;
-    --send-button: #008000;
+  --banner-main: #f0b67f;
+  --title-main: #fe5f55;
+  --button-main: #d9d9d9;
+  --background-main: #eef5db;
+  --chatroom: #c7efcf;
+  --this-user-message: #c7efcf;
+  --other-user-message: #808080;
+  --text-input: #add8e6;
+  --send-button: #008000;
 }
 
 .main-header {
-    background-color: var(--banner-main);
-    padding-top: 10px;
+  background-color: var(--banner-main);
+  padding-top: 10px;
 }
 
 .main-title {
-    background-color: var(--title-main);
+  background-color: var(--title-main);
 }
 
 .navbar {
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-item {
-    background-color: var(--button-main);
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+  background-color: var(--button-main);
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 #logout {
-    border-width: 0px;
+  border-width: 0px;
 }
 
-.message {
+.main-container {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.scrollable-content {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.message-username {
+    font-size: small;
     position: relative;
-    font-family: sans-serif;
-    font-size: 12px;
-    line-height: 14px;
-    max-width: 75%;
-    width: fit-content;
-    border-radius: 40px;
-    padding-top: 7px;
-    padding-left: 7px;
-    padding-right: 7px;
-    text-align: left;
-    color: #000;
+    margin-bottom: -2px;
+    color: gray;
+}
+
+.message-div {
     margin-bottom: 12px;
 }
 
-.other-user {
-    background: var(--other-user-message);
+.message {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  max-width: 75%;
+  width: fit-content;
+  border-radius: 40px;
+  padding-top: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-align: left;
+  color: #000;
+  margin-bottom: 12px;
 }
-  
+
+.other-user {
+  background: var(--other-user-message);
+}
+
 .other-user-bottom:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 12px solid var(--other-user-message);
-    border-right: 12px solid transparent;
-    border-top: 12px solid var(--other-user-message);
-    border-bottom: 12px solid transparent;
-    left: 7px;
-    bottom: -7px;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid var(--other-user-message);
+  border-right: 12px solid transparent;
+  border-top: 12px solid var(--other-user-message);
+  border-bottom: 12px solid transparent;
+  left: 7px;
+  bottom: -7px;
 }
 
 .this-user {
-    background: var(--this-user-message);
+  background: var(--this-user-message);
 }
-  
+
 .this-user-bottom:before {
     content: "";
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 7px solid transparent;
-    border-right: 7px solid var(--this-user-message); 
-    border-top: 7px solid var(--this-user-message);
-    border-bottom: 7px solid transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid var(--this-user-message); 
+    border-top: 12px solid var(--this-user-message);
+    border-bottom: 12px solid transparent;
     right: 7px;
     bottom: -7px;
 }
 
 #message-form {
     justify-content: right;
+}
+
+@media (max-width: 768px) {
+    .message {
+        max-width: 75%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .message {
+        max-width: 60%;
+    }
 }

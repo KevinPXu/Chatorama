@@ -1,10 +1,19 @@
-{{#if is_this_user}}
-<div class="row justify-content-end message this-user this-user-bottom">
-{{else}}
-<div class="row justify-content-start message other-user other-user-bottom">
-    <p class="message-username">{{User.username}}: </p>
-{{/if}}
+{{#unless is_this_user}}
+  <div class="row username-div">
+    <p class="message-username">{{User.username}} </p>
+  </div>
+{{/unless}}
 
-    <p class="message-text">{{text}}</p>
+<div class="row message-div">
+  {{#if is_this_user}}
+
+    <div class="col message this-user this-user-bottom">
+      <p class="message-text">{{text}}</p>
+    </div>
+  {{else}}
+    <div class="col message other-user other-user-bottom">
+      <p class="message-text">{{text}}</p>
+    </div>
+  {{/if}}
 
 </div>
