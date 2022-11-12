@@ -1,19 +1,19 @@
 {{#unless is_this_user}}
-<div class="row username-div"></div>
+  <div class="row username-div">
     <p class="message-username">{{User.username}} </p>
-</div>
+  </div>
 {{/unless}}
 
 <div class="row message-div">
-{{#if is_this_user}}
-    
+  {{#if is_this_user}}
+
     <div class="col message this-user this-user-bottom">
-        <p class="message-text">{{text}}</p>
+      <p class="message-text">{{text}}</p>
     </div>
-{{else}}
+  {{else}}
     <div class="col message other-user other-user-bottom">
-        <p class="message-text">{{text}}</p>
+      <p class="message-text">{{text}}</p>
     </div>
-{{/if}}
+  {{/if}}
 
 </div>

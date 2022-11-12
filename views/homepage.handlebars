@@ -12,11 +12,11 @@
     {{/if}}
   </div>
 </div>
-
-{{#each chatrooms as |chatroom|}}
-{{>loadChatrooms}}
-{{/each}}
-
+<div class="container overflow-auto scrollable-content">
+  {{#each chatrooms as |chatroom|}}
+  {{>loadChatrooms}}
+  {{/each}}
+</div>
 {{#if logged_in}}
 <script src="/js/createChat.js"></script>
 {{/if}}
