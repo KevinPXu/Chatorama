@@ -32,7 +32,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">Home</a>
             {{#if logged_in}}
-              <a class="nav-item nav-link" href="/profile">Profile</a>
+              <a class="nav-item nav-link" href="/profile/{{current_user}}">Profile</a>
               <button id="logout" class="nav-item nav-link">Logout</button>
             {{else}}
               <a class="nav-item nav-link" href="/login">Login</a>
