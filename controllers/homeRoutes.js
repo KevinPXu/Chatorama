@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
       chatrooms[i].numUsers = userChat.length;
     }
 
-    res.status(200).render("homepage", { chatrooms });
+    res.status(200).render("homepage", { chatrooms, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -49,7 +49,7 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", { logged_in: req.session.logged_in });
 });
 
 router.get("/chatroom/:chatroomid", auth, async (req, res) => {
@@ -92,6 +92,7 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   res.render("chatroom", {
     messages,
     chatroom_id: req.params.chatroomid,
+    logged_in: req.session.logged_in
   });
 });
 
