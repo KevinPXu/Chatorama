@@ -10,3 +10,25 @@
     --send-button: #008000;
 }
 
+.main-header {
+    background-color: var(--banner-main);
+    padding-top: 10px;
+}
+
+.main-title {
+    background-color: var(--title-main);
+}
+
+.navbar {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-item {
+    background-color: var(--button-main);
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
