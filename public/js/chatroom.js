@@ -1,4 +1,7 @@
 const chatID = Number(document.querySelector('#message-form').dataset.chatid);
+let socket = io();
+socket.emit('channelEmit', chatID);
+
 document.querySelector('#message-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = document.querySelector('#message-bar').value.trim();
@@ -11,9 +14,31 @@ document.querySelector('#message-form').addEventListener('submit', async (event)
         });
         if (response.ok) {
             text.value = '';
-            document.location.replace(`/chatroom/${chatID}`);
+            socket.emit('chatroomUpdate', { id: chatID });
+            // document.location.replace(`/chatroom/${chatID}`);
         } else {
             alert('Something went wrong, try again.');
         }
     }
+});
+
+// select 
+const messageList = document.querySelector('#message-list');
+
+
+
+socket.on('updateMessages', async () => { //listen for an update from the server
+    console.log('someone is telling you to update!');
+    const getNewMessageResponse = await fetch(`/api/message/latest/${chatID}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    const newestMessage = await getNewMessageResponse.json();
+    console.log(newestMessage);
+    let newMessageElement = document.createElement('li');
+    newMessageElement.textContent = newestMessage.text + ' --- from ' + newestMessage.User.username;
+    messageList.appendChild(newMessageElement);
+    newMessageElement.scrollIntoView({
+        behavior: 'smooth'
+    });
 });
