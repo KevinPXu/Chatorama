@@ -66,7 +66,12 @@ router.get('/latest/:chatroomid', async (req, res) => {
                 chatroom_id: req.params.chatroomid
             },
             order: [ [ 'id', 'DESC' ]],
-            include: User
+            include: {
+                model: User,
+                attributes: {
+                    exclude: ['password']
+                },
+            }
         }));
     } catch (error) {
         console.log(error);
