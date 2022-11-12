@@ -11,7 +11,6 @@ router.get("/", async (req, res) => {
     );
 
     const chatrooms_id = chatrooms.map((chatroom) => chatroom.id);
-    console.log(chatrooms_id);
 
     for (let i = 0; i < chatrooms_id.length; i++) {
       const messageData = await Message.findOne({
@@ -22,7 +21,6 @@ router.get("/", async (req, res) => {
       });
 
       const message = messageData.get({ plain: true });
-      console.log(message);
       chatrooms[i].latestMessageDate = message.createdDate;
     }
 
@@ -90,6 +88,7 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
       messages[i].is_this_user = false;
     }
   }
+  console.log(messages);
   res.render("chatroom", {
     messages,
     chatroom_id: req.params.chatroomid,

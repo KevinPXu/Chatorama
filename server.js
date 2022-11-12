@@ -10,6 +10,9 @@ const hbs = exphbs.create({ helpers });
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 
+const http = require('http');
+const { Server } = require('socket.io');
+
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -40,7 +43,25 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
+
+const httpServer = http.Server(app);
+const io = new Server(httpServer);
+
+io.on('connection', (socket) => { //when a connection event occurs
+  console.log('Client connected'); //logs to back end console
+  socket.on('disconnect', () => console.log('Client disconnected')); //when a disconnection occurs log to back end console
+
+  //if current user is in the chat room, assign them to the channel they are in.
+  socket.on('channelEmit', (chatroomID) => { //listen for emit and assign the socket to proper room
+      console.log('Socket joined from', chatroomID);
+      socket.join(chatroomID.toString());
+  });
+  socket.on('chatroomUpdate', (updateObj) => { //listen for a chatroomUpdate from the user
+      io.to(updateObj.id.toString()).emit("updateMessages"); //update all room members
+  });
+});
+
 //syncs the sequelize ORM to the express server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
+  httpServer.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
 });
