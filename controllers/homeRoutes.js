@@ -108,4 +108,24 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   });
 });
 
+router.get("/profile/:userid", auth, async (req, res) => {
+  try {
+    const userData = (await User.findByPk(req.params.userid, {attributes: { exclude: ["password"] }})).get({ plain: true });
+    const profile_info = {
+      username: userData.username,
+      description: userData.description
+    };
+  
+    res.render("profile", {
+      profile_info,
+      logged_in: req.session.logged_in,
+      current_user: req.session.user_id
+    });
+  } catch (error) {
+    res.render("404", {
+      logged_in: req.session.logged_in,
+      current_user: req.session.user_id
+    });
+  }
+});
 module.exports = router;
