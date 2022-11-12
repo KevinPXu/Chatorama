@@ -36,13 +36,31 @@ socket.on('updateMessages', async () => { //listen for an update from the server
     });
     const newestMessage = await getNewMessageResponse.json();
     console.log(newestMessage);
+    console.log('current user', userID);
     //if message received matches the current user id then give it class ids that represent that
     //otherwise give it classes that look like a message from another user
-    
-    let newMessageElement = document.createElement('li');
-    newMessageElement.textContent = newestMessage.text + ' --- from ' + newestMessage.User.username;
-    messageList.appendChild(newMessageElement);
-    newMessageElement.scrollIntoView({
+    const newMessageDiv = createMessageElement(newestMessage);
+    messageList.appendChild(newMessageDiv);
+    newMessageDiv.scrollIntoView({
         behavior: 'smooth'
     });
 });
+
+function createMessageElement (newestMessage) {
+    const divWrapper = document.createElement('div');
+    if(newestMessage.user_id == userID) {
+        divWrapper.classList.add('row', 'justify-content-end', 'message', 'this-user', 'this-user-bottom');
+    } else {
+        divWrapper.classList.add('row', 'justify-content-start', 'message', 'other-user', 'other-user-bottom');
+        const pName = document.createElement('p');
+        pName.classList.add('message-username');
+        pName.textContent = newestMessage.User.username;
+        divWrapper.appendChild(pName);
+    }
+
+    const pText = document.createElement('p');
+    pText.textContent = newestMessage.text;
+    divWrapper.appendChild(pText);
+    console.log(divWrapper);
+    return divWrapper;
+}
