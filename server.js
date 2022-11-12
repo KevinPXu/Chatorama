@@ -46,6 +46,21 @@ app.use(routes);
 
 const httpServer = http.Server(app);
 const io = new Server(httpServer);
+
+io.on('connection', (socket) => { //when a connection event occurs
+  console.log('Client connected'); //logs to back end console
+  socket.on('disconnect', () => console.log('Client disconnected')); //when a disconnection occurs log to back end console
+
+  //if current user is in the chat room, assign them to the channel they are in.
+  socket.on('channelEmit', (chatroomID) => { //listen for emit and assign the socket to proper room
+      console.log('Socket joined from', chatroomID);
+      socket.join(chatroomID.toString());
+  });
+  socket.on('chatroomUpdate', (updateObj) => { //listen for a chatroomUpdate from the user
+      io.to(updateObj.id.toString()).emit("updateMessages"); //update all room members
+  });
+});
+
 //syncs the sequelize ORM to the express server
 sequelize.sync({ force: false }).then(() => {
   httpServer.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
