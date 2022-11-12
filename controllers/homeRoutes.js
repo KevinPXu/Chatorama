@@ -19,9 +19,10 @@ router.get("/", async (req, res) => {
         },
         order: [["createdDate", "DESC"]],
       });
-
-      const message = messageData.get({ plain: true });
-      chatrooms[i].latestMessageDate = message.createdDate;
+      if (messageData) {
+        const message = messageData.get({ plain: true });
+        chatrooms[i].latestMessageDate = message.createdDate;
+      }
     }
 
     for (let i = 0; i < chatrooms.length; i++) {
