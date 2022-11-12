@@ -31,6 +31,11 @@ User.init(
                 is: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
                 len: [6]
             }
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "This user is boring and had nothing to say about themselves :("
         }
     },
     {
