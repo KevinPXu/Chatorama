@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Message, Chatroom, UserChat } = require("../models");
-//const auth = require("../utils/authenticate");
+const auth = require("../utils/authenticate");
 
 router.get("/", async (req, res) => {
   try {
@@ -52,7 +52,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/chatroom/:chatroomid", async (req, res) => {
+router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   // //check if user exists in chatroomid thru UserChat, if not add them!
   // console.log(req.session.user_id);
   // const userChatData = await UserChat.findOne({
@@ -91,7 +91,7 @@ router.get("/chatroom/:chatroomid", async (req, res) => {
   console.log(messages);
   res.render("chatroom", {
     messages,
-    chatroom_id: req.params.chatroomid
+    chatroom_id: req.params.chatroomid,
   });
 });
 
