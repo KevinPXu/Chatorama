@@ -36,3 +36,57 @@
 #logout {
     border-width: 0px;
 }
+
+.message {
+    position: relative;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 75%;
+    width: fit-content;
+    border-radius: 40px;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    text-align: left;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.other-user {
+    background: var(--other-user-message);
+}
+  
+.other-user-bottom:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 12px solid var(--other-user-message);
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--other-user-message);
+    border-bottom: 12px solid transparent;
+    left: 7px;
+    bottom: -7px;
+}
+
+.this-user {
+    background: var(--this-user-message);
+}
+  
+.this-user-bottom:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 7px solid transparent;
+    border-right: 7px solid var(--this-user-message); 
+    border-top: 7px solid var(--this-user-message);
+    border-bottom: 7px solid transparent;
+    right: 7px;
+    bottom: -7px;
+}
+
+#message-form {
+    justify-content: right;
+}
