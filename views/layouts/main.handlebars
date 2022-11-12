@@ -19,7 +19,6 @@
       
         <!-- rm navbar-light and bg-light to add custom navbar colors -->
         <nav class="row justify-space-around navbar navbar-expand-lg navbar-light bg-light">
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <!-- Add gray background to navbar-item-->
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="/">Home</a>
@@ -28,9 +27,9 @@
               <button id="logout" class="nav-item nav-link">Logout</button>
               {{else}}
               <a class="nav-item nav-link" href="/login">Login</a>
+              <a class="nav-item nav-link" href="/signup">Sign up</a>
               {{/if}}
             </div>
-          </div>
         </nav>
       </header>
     </div>

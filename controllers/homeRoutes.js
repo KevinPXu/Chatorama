@@ -52,6 +52,16 @@ router.get("/login", (req, res) => {
   res.render("login", { logged_in: req.session.logged_in });
 });
 
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    // Change route to profile if we want to once it is created
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup", { logged_in: req.session.logged_in });
+});
+
 router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   // //check if user exists in chatroomid thru UserChat, if not add them!
   // console.log(req.session.user_id);
