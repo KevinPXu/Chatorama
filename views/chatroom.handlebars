@@ -3,7 +3,7 @@
 {{> message-details}}
 {{/each}}
 </div>
-<form class="form-inline" id="message-form" data-chatid="{{chatroom_id}}">
+<form class="form-inline" id="message-form" data-chatid="{{chatroom_id}}" data-userid="{{current_user}}">
     <input type="input" class="form-control" id="message-bar" placeholder="Message">
     <button type="submit" class="btn btn-primary ml-2">send</button>
 </form>

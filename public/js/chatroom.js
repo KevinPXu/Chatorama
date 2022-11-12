@@ -1,4 +1,5 @@
 const chatID = Number(document.querySelector('#message-form').dataset.chatid);
+const userID = Number(document.querySelector('#message-form').dataset.userid);
 let socket = io();
 socket.emit('channelEmit', chatID);
 
@@ -35,6 +36,9 @@ socket.on('updateMessages', async () => { //listen for an update from the server
     });
     const newestMessage = await getNewMessageResponse.json();
     console.log(newestMessage);
+    //if message received matches the current user id then give it class ids that represent that
+    //otherwise give it classes that look like a message from another user
+    
     let newMessageElement = document.createElement('li');
     newMessageElement.textContent = newestMessage.text + ' --- from ' + newestMessage.User.username;
     messageList.appendChild(newMessageElement);

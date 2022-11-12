@@ -64,21 +64,21 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/chatroom/:chatroomid", auth, async (req, res) => {
-  // //check if user exists in chatroomid thru UserChat, if not add them!
-  // console.log(req.session.user_id);
-  // const userChatData = await UserChat.findOne({
-  //   where: {
-  //     chatroom_id: req.params.chatroomid,
-  //     user_id: req.session.user_id,
-  //   },
-  // });
-  // console.log(userChatData);
-  // if (!userChatData) {
-  //   UserChat.create({
-  //     chatroom_id: req.params.chatroomid,
-  //     user_id: req.session.user_id,
-  //   });
-  // }
+  //check if user exists in chatroomid thru UserChat, if not add them!
+  console.log(req.session.user_id);
+  const userChatData = await UserChat.findOne({
+    where: {
+      chatroom_id: req.params.chatroomid,
+      user_id: req.session.user_id,
+    },
+  });
+  console.log(userChatData);
+  if (!userChatData) {
+    UserChat.create({
+      chatroom_id: req.params.chatroomid,
+      user_id: req.session.user_id,
+    });
+  }
 
   // get messages and associated name
   // attach attribute for every message (is_this_user) that says whether it is from self or someone else
@@ -103,7 +103,8 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   res.render("chatroom", {
     messages,
     chatroom_id: req.params.chatroomid,
-    logged_in: req.session.logged_in
+    logged_in: req.session.logged_in,
+    current_user: req.session.user_id
   });
 });
 
