@@ -34,8 +34,6 @@ socket.on('updateMessages', async () => { //listen for an update from the server
         headers: { 'Content-Type': 'application/json' }
     });
     const newestMessage = await getNewMessageResponse.json();
-    console.log(newestMessage);
-    console.log('current user', userID);
     //if message received matches the current user id then give it class ids that represent that
     //otherwise give it classes that look like a message from another user
     const newMessageDiv = createMessageElement(newestMessage);
@@ -75,6 +73,5 @@ function createMessageElement (newestMessage) {
     divMessageUser.appendChild(pText);
     divMessageRow.appendChild(divMessageUser);
     divWrapper.appendChild(divMessageRow);
-    console.log(divWrapper);
     return divWrapper;
 }
