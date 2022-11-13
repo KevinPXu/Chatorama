@@ -13,6 +13,9 @@
   --login-form: #c7efcf;
   --login-form-border: #83bc90;
   --description: #c7efcf;
+  --nav-button-border: rgb(149, 149, 149);
+  --nav-button-text: rgb(69, 69, 69);
+  --nav-button-text-hover: rgb(132, 132, 132);
 }
 
 body {
@@ -45,7 +48,29 @@ body {
   margin-left: 10px;
   margin-top: 4px;
   margin-bottom: 4px;
+  border-radius: 5px;
+  border: 2px solid rgb(69, 69, 69);
 }
+
+.nav-custom {
+  background-color: var(--button-main);
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  color: var(--nav-button-text);
+}
+
+.nav-custom:hover {
+  text-decoration: none;
+  color: var(--nav-button-text-hover);
+}
+
 
 #logout {
   border-width: 0px;
