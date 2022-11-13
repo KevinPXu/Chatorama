@@ -136,6 +136,11 @@ body {
   color: gray;
 }
 
+.message-username:hover {
+  text-decoration: none;
+  color: var(--login-form-border);
+}
+
 .message-div {
   margin-bottom: 12px;
 }
