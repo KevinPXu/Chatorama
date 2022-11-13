@@ -30,13 +30,16 @@
         >
           <!-- Add gray background to navbar-item-->
           <div class="navbar-nav">
-            <a class="nav-custom" href="/">Home</a>
+            <a class="nav-custom text-center" href="/">Home</a>
             {{#if logged_in}}
-              <a class="nav-custom" href="/profile/{{current_user}}">Profile</a>
+              <a
+                class="nav-custom text-center"
+                href="/profile/{{current_user}}"
+              >Profile</a>
               <button id="logout" class="nav-custom">Logout</button>
             {{else}}
-              <a class="nav-custom" href="/login">Login</a>
-              <a class="nav-custom" href="/signup">Sign up</a>
+              <a class="nav-custom text-center" href="/login">Login</a>
+              <a class="nav-custom text-center" href="/signup">Sign up</a>
             {{/if}}
           </div>
         </nav>
