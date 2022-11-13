@@ -30,13 +30,13 @@
         >
           <!-- Add gray background to navbar-item-->
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-custom" href="/">Home</a>
             {{#if logged_in}}
-              <a class="nav-item nav-link" href="/profile/{{current_user}}">Profile</a>
-              <button id="logout" class="nav-item nav-link">Logout</button>
+              <a class="nav-custom" href="/profile/{{current_user}}">Profile</a>
+              <button id="logout" class="nav-custom">Logout</button>
             {{else}}
-              <a class="nav-item nav-link" href="/login">Login</a>
-              <a class="nav-item nav-link" href="/signup">Sign up</a>
+              <a class="nav-custom" href="/login">Login</a>
+              <a class="nav-custom" href="/signup">Sign up</a>
             {{/if}}
           </div>
         </nav>
@@ -49,7 +49,7 @@
     </main>
 
     <footer class="main-footer">
-      <p class="content has-text-centered p-4 m-2">
+      <p class="content p-4 m-2">
         Copyright &copy; 2022 by Chatorama.
       </p>
     </footer>
