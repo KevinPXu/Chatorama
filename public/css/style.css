@@ -52,16 +52,37 @@
   bottom: 0;
 }
 
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #fe5f55 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fe5f55;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+
 .message-username {
-    font-size: 10px;
-    position: relative;
-    margin-bottom: -2px;
-    margin-left: 10px;
-    color: gray;
+  font-size: 10px;
+  position: relative;
+  margin-bottom: -2px;
+  margin-left: 10px;
+  color: gray;
 }
 
 .message-div {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .message {
@@ -105,33 +126,33 @@
 }
 
 .this-user-bottom:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 12px solid transparent;
-    border-right: 12px solid var(--this-user-message); 
-    border-top: 12px solid var(--this-user-message);
-    border-bottom: 12px solid transparent;
-    right: 7px;
-    bottom: -7px;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid transparent;
+  border-right: 12px solid var(--this-user-message);
+  border-top: 12px solid var(--this-user-message);
+  border-bottom: 12px solid transparent;
+  right: 7px;
+  bottom: -7px;
 }
 
 #message-form {
-    justify-content: right;
+  justify-content: right;
 }
 
 @media (max-width: 768px) {
-    .message {
-        max-width: 75%;
-    }
-    #message-bar {
-        width: 75%;
-    }
+  .message {
+    max-width: 75%;
+  }
+  #message-bar {
+    width: 75%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-    .message {
-        max-width: 60%;
-    }
+  .message {
+    max-width: 60%;
+  }
 }
