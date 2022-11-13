@@ -16,7 +16,6 @@ document.querySelector('#message-form').addEventListener('submit', async (event)
         if (response.ok) {
             document.querySelector('#message-bar').value = '';
             socket.emit('chatroomUpdate', { id: chatID });
-            // document.location.replace(`/chatroom/${chatID}`);
         } else {
             alert('Something went wrong, try again.');
         }
@@ -58,8 +57,9 @@ function createMessageElement (newestMessage) {
         const divUsernameRow = document.createElement('div');
         divUsernameRow.classList.add('row', 'username-div');
 
-        const pName = document.createElement('p');
+        const pName = document.createElement('a');
         pName.classList.add('message-username');
+        pName.setAttribute('href', `/profile/${newestMessage.User.id}`)
 
         pName.textContent = newestMessage.User.username;
         divUsernameRow.appendChild(pName);
