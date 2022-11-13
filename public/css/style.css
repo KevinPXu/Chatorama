@@ -4,15 +4,26 @@
   --button-main: #d9d9d9;
   --background-main: #eef5db;
   --chatroom: #c7efcf;
+  --chatroom-body: #f4fff4;
+  --join-chatroom: #d3edd8;
   --this-user-message: #c7efcf;
   --other-user-message: #808080;
   --text-input: #add8e6;
   --send-button: #008000;
 }
 
+.body {
+    background-color: var(--background-main);
+}
+
 .main-header {
   background-color: var(--banner-main);
   padding-top: 10px;
+}
+
+.main-footer {
+    background-color: var(--banner-main);
+    text-align: center;
 }
 
 .main-title {
@@ -140,6 +151,23 @@
 
 #message-form {
   justify-content: right;
+}
+
+.chatroom-list a:hover {
+    text-decoration: none;
+}
+
+.card-header {
+    background-color: var(--chatroom);
+}
+
+.card-body {
+    background-color: var(--chatroom-body);
+}
+
+.join-chatroom {
+    background-color: var(--join-chatroom);
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
