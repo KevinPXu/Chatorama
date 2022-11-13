@@ -2,17 +2,19 @@
   --banner-main: #f0b67f;
   --title-main: #fe5f55;
   --button-main: #d9d9d9;
-  --background-main: #eef5db;
+  --background-main: #f9fbf3;
   --chatroom: #c7efcf;
-  --chatroom-body: #f4fff4;
+  --chatroom-body: #ebfbeb;
   --join-chatroom: #d3edd8;
   --this-user-message: #c7efcf;
   --other-user-message: #808080;
   --text-input: #add8e6;
   --send-button: #008000;
+  --login-form: #c7efcf;
+  --login-form-border: #83bc90;
 }
 
-.body {
+body {
     background-color: var(--background-main);
 }
 
@@ -168,6 +170,43 @@
 .join-chatroom {
     background-color: var(--join-chatroom);
     margin-top: 20px;
+}
+
+.login-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.login-title {
+  text-align: center;
+}
+
+.login-form {
+  background-color: var(--login-form);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 5px solid var(--login-form-border);
+}
+
+.input {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.login-btn {
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
 }
 
 @media (max-width: 768px) {
