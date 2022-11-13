@@ -10,6 +10,12 @@
   --send-button: #008000;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .main-header {
   background-color: var(--banner-main);
   padding-top: 10px;
@@ -33,6 +39,25 @@
   margin-bottom: 4px;
 }
 
+.custom-input {
+  font-size: 14px;
+  position: relative;
+}
+
+.custom-input input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--banner-main);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  width: 250px;
+  font-size: 14px;
+}
+
 #logout {
   border-width: 0px;
 }
@@ -53,15 +78,15 @@
 }
 
 .message-username {
-    font-size: 10px;
-    position: relative;
-    margin-bottom: -2px;
-    margin-left: 10px;
-    color: gray;
+  font-size: 10px;
+  position: relative;
+  margin-bottom: -2px;
+  margin-left: 10px;
+  color: gray;
 }
 
 .message-div {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .message {
@@ -105,33 +130,33 @@
 }
 
 .this-user-bottom:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 12px solid transparent;
-    border-right: 12px solid var(--this-user-message); 
-    border-top: 12px solid var(--this-user-message);
-    border-bottom: 12px solid transparent;
-    right: 7px;
-    bottom: -7px;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid transparent;
+  border-right: 12px solid var(--this-user-message);
+  border-top: 12px solid var(--this-user-message);
+  border-bottom: 12px solid transparent;
+  right: 7px;
+  bottom: -7px;
 }
 
 #message-form {
-    justify-content: right;
+  justify-content: right;
 }
 
 @media (max-width: 768px) {
-    .message {
-        max-width: 75%;
-    }
-    #message-bar {
-        width: 75%;
-    }
+  .message {
+    max-width: 75%;
+  }
+  #message-bar {
+    width: 75%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-    .message {
-        max-width: 60%;
-    }
+  .message {
+    max-width: 60%;
+  }
 }
