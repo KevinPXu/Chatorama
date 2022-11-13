@@ -65,14 +65,13 @@ router.get("/signup", (req, res) => {
 
 router.get("/chatroom/:chatroomid", auth, async (req, res) => {
   //check if user exists in chatroomid thru UserChat, if not add them!
-  console.log(req.session.user_id);
   const userChatData = await UserChat.findOne({
     where: {
       chatroom_id: req.params.chatroomid,
       user_id: req.session.user_id,
     },
   });
-  console.log(userChatData);
+
   if (!userChatData) {
     UserChat.create({
       chatroom_id: req.params.chatroomid,
@@ -98,8 +97,7 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
     } else {
       messages[i].is_this_user = false;
     }
-  }
-  console.log(messages);
+  }  
   res.render("chatroom", {
     messages,
     chatroom_id: req.params.chatroomid,
