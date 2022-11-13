@@ -175,8 +175,8 @@ body {
   word-break: break-all;
   border-radius: 40px;
   padding-top: 12px;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 14px;
+  padding-right: 14px;
   text-align: left;
   color: #000;
   margin-bottom: 12px;
@@ -192,7 +192,7 @@ body {
   height: 0px;
   position: absolute;
   border-left: 12px solid var(--other-user-message);
-  border-right: 12px solid transparent;
+  border-right: 0px solid transparent;
   border-top: 12px solid var(--other-user-message);
   border-bottom: 12px solid transparent;
   left: 7px;
@@ -209,7 +209,7 @@ body {
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 12px solid transparent;
+  border-left: 0px solid transparent;
   border-right: 12px solid var(--this-user-message);
   border-top: 12px solid var(--this-user-message);
   border-bottom: 12px solid transparent;
