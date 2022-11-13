@@ -12,6 +12,7 @@
   --send-button: #008000;
   --login-form: #c7efcf;
   --login-form-border: #83bc90;
+  --description: #c7efcf;
 }
 
 body {
@@ -209,6 +210,28 @@ body {
   display: table;
 }
 
+.profile-picture {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: table;
+}
+
+.description {
+  background-color: var(--description);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-top: 10px;
+  min-height: 250px;
+}
+
 @media (max-width: 768px) {
   .message {
     max-width: 75%;
@@ -216,10 +239,16 @@ body {
   #message-bar {
     width: 75%;
   }
+  .description {
+    width: 90%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .message {
     max-width: 60%;
+  }
+  .description {
+    width: 75%;
   }
 }
