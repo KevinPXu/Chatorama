@@ -4,7 +4,9 @@
   --button-main: #d9d9d9;
   --background-main: #f9fbf3;
   --chatroom: #c7efcf;
-  --chatroom-body: #ebfbeb;
+  --chatroom-body: #eafaec;
+  --chatroom-text: #006eff;
+  --chatroom-text-hover: #003882;
   --join-chatroom: #d3edd8;
   --this-user-message: #c7efcf;
   --other-user-message: #808080;
@@ -181,8 +183,17 @@ body {
   justify-content: right;
 }
 
+.chatroom-list a {
+  color: var(--chatroom-text);
+}
+
 .chatroom-list a:hover {
     text-decoration: none;
+    color: var(--chatroom-text);
+}
+
+.chatroom-list a .card-header:hover {
+  color: var(--chatroom-text-hover);
 }
 
 .card-header {
