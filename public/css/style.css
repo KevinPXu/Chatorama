@@ -69,7 +69,7 @@ body {
   border-radius: 30px;
 }
 
-.custom-input {
+.custom-input .custom-input-home {
   font-size: 14px;
   position: relative;
 }
@@ -87,6 +87,21 @@ body {
   width: 250px;
   font-size: 14px;
 }
+
+.custom-input-home input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--login-form-border);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  width: 250px;
+  font-size: 14px;
+}
+
 .nav-custom:hover {
   text-decoration: none;
   color: var(--nav-button-text-hover);
