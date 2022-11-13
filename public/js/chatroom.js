@@ -48,19 +48,33 @@ socket.on('updateMessages', async () => { //listen for an update from the server
 
 function createMessageElement (newestMessage) {
     const divWrapper = document.createElement('div');
+    const divMessageRow = document.createElement('div');
+    const divMessageUser = document.createElement('div');
+
+    divMessageRow.classList.add('row', 'message-div');
     if(newestMessage.user_id == userID) {
-        divWrapper.classList.add('row', 'justify-content-end', 'message', 'this-user', 'this-user-bottom');
+        divMessageUser.classList.add('message', 'this-user', 'this-user-bottom');
     } else {
-        divWrapper.classList.add('row', 'justify-content-start', 'message', 'other-user', 'other-user-bottom');
+        const divUsernameRow = document.createElement('div');
+        divUsernameRow.classList.add('row', 'username-div');
+
         const pName = document.createElement('p');
         pName.classList.add('message-username');
+
         pName.textContent = newestMessage.User.username;
-        divWrapper.appendChild(pName);
+        divUsernameRow.appendChild(pName);
+        divWrapper.appendChild(divUsernameRow);
+
+        divMessageUser.classList.add('message', 'other-user', 'other-user-bottom');
     }
 
     const pText = document.createElement('p');
+    pText.classList.add('message-text');
     pText.textContent = newestMessage.text;
-    divWrapper.appendChild(pText);
+
+    divMessageUser.appendChild(pText);
+    divMessageRow.appendChild(divMessageUser);
+    divWrapper.appendChild(divMessageRow);
     console.log(divWrapper);
     return divWrapper;
 }
