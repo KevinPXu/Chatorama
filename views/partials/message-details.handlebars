@@ -1,7 +1,7 @@
 <div>
     {{#unless is_this_user}}
     <div class="row username-div">
-        <p class="message-username">{{User.username}} </p>
+        <a class="message-username" href="/profile/{{User.id}}">{{User.username}} </a>
     </div>
     {{/unless}}
 
