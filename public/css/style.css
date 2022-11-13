@@ -21,7 +21,7 @@
 }
 
 body {
-    background-color: var(--background-main);
+  background-color: var(--background-main);
 }
 
 *,
@@ -36,12 +36,13 @@ body {
 }
 
 .main-footer {
-    background-color: var(--banner-main);
-    text-align: center;
+  background-color: var(--banner-main);
+  text-align: center;
 }
 
 .main-title {
   background-color: var(--title-main);
+  border-radius: 30px;
 }
 
 .navbar {
@@ -62,6 +63,10 @@ body {
   padding-bottom: 10px;
   border-radius: 5px;
   color: var(--nav-button-text);
+}
+
+#chatroom-jumbo {
+  border-radius: 30px;
 }
 
 .custom-input {
@@ -86,7 +91,6 @@ body {
   text-decoration: none;
   color: var(--nav-button-text-hover);
 }
-
 
 #logout {
   border-width: 0px;
@@ -202,8 +206,8 @@ body {
 }
 
 .chatroom-list a:hover {
-    text-decoration: none;
-    color: var(--chatroom-text);
+  text-decoration: none;
+  color: var(--chatroom-text);
 }
 
 .chatroom-list a .card-header:hover {
@@ -211,23 +215,23 @@ body {
 }
 
 .card-header {
-    background-color: var(--chatroom);
+  background-color: var(--chatroom);
 }
 
 .card-body {
-    background-color: var(--chatroom-body);
+  background-color: var(--chatroom-body);
 }
 
 .join-chatroom {
-    background-color: var(--join-chatroom);
-    margin-top: 20px;
+  background-color: var(--join-chatroom);
+  margin-top: 20px;
 }
 
 .login-container {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  justify-content: center;
 }
 
 .login-title {
@@ -241,6 +245,7 @@ body {
   padding-left: 25px;
   padding-right: 25px;
   border: 5px solid var(--login-form-border);
+  border-radius: 25px;
 }
 
 .input {
