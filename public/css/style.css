@@ -24,6 +24,12 @@ body {
     background-color: var(--background-main);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .main-header {
   background-color: var(--banner-main);
   padding-top: 10px;
@@ -58,6 +64,24 @@ body {
   color: var(--nav-button-text);
 }
 
+.custom-input {
+  font-size: 14px;
+  position: relative;
+}
+
+.custom-input input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--banner-main);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  width: 250px;
+  font-size: 14px;
+}
 .nav-custom:hover {
   text-decoration: none;
   color: var(--nav-button-text-hover);
