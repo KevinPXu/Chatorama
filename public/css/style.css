@@ -44,16 +44,6 @@ body {
   margin-right: auto;
 }
 
-.nav-item {
-  background-color: var(--button-main);
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  border-radius: 5px;
-  border: 2px solid rgb(69, 69, 69);
-}
-
 .nav-custom {
   background-color: var(--button-main);
   margin-right: 15px;
