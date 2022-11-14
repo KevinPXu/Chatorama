@@ -14,11 +14,13 @@
       <p class="card-text">Users Chatting: {{numUsers}}</p>
       <p class="card-text">Latest Message:
         {{format_date_time latestMessageDate}}</p>
-      {{#if is_this_user}}
+      {{#if isThisUser}}
       <button class="delete-btn" type="submit" data-chatid="{{id}}" value="Delete">Delete</button>
       {{/if}}
     </div>
   </div>
 {{/each}}
 </div>
+{{#if is_this_user}}
 <script src="/js/profile.js"></script>
+ {{/if}}
