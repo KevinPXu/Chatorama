@@ -36,7 +36,11 @@ router.get("/", async (req, res) => {
       chatrooms[i].numUsers = userChat.length;
     }
 
-    res.status(200).render("homepage", { chatrooms, logged_in: req.session.logged_in, current_user: req.session.user_id });
+    res.status(200).render("homepage", {
+      chatrooms,
+      logged_in: req.session.logged_in,
+      current_user: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -97,32 +101,73 @@ router.get("/chatroom/:chatroomid", auth, async (req, res) => {
     } else {
       messages[i].is_this_user = false;
     }
-  }  
+  }
   res.render("chatroom", {
     messages,
     chatroom_id: req.params.chatroomid,
     logged_in: req.session.logged_in,
-    current_user: req.session.user_id
+    current_user: req.session.user_id,
   });
 });
 
 router.get("/profile/:userid", auth, async (req, res) => {
   try {
-    const userData = (await User.findByPk(req.params.userid, {attributes: { exclude: ["password"] }})).get({ plain: true });
+    const userData = (
+      await User.findByPk(req.params.userid, {
+        attributes: { exclude: ["password"] },
+      })
+    ).get({ plain: true });
     const profile_info = {
       username: userData.username,
-      description: userData.description
+      description: userData.description,
     };
-  
+
+    const chatroomData = await Chatroom.findAll({
+      where: {
+        owner_id: req.params.userid,
+      },
+    });
+
+    const chatrooms = chatroomData.map((chatroom) =>
+      chatroom.get({ plain: true })
+    );
+
+    const chatrooms_id = chatrooms.map((chatroom) => chatroom.id);
+
+    for (let i = 0; i < chatrooms_id.length; i++) {
+      const messageData = await Message.findOne({
+        where: {
+          chatroom_id: chatrooms_id[i],
+        },
+        order: [["createdDate", "DESC"]],
+      });
+      if (messageData) {
+        const message = messageData.get({ plain: true });
+        chatrooms[i].latestMessageDate = message.createdDate;
+      }
+    }
+
+    for (let i = 0; i < chatrooms.length; i++) {
+      const userChatData = await UserChat.findAll({
+        where: {
+          chatroom_id: chatrooms_id[i],
+        },
+      });
+
+      const userChat = userChatData.map((user) => user.get({ plain: true }));
+      chatrooms[i].numUsers = userChat.length;
+    }
+
     res.render("profile", {
       profile_info,
+      chatrooms,
       logged_in: req.session.logged_in,
-      current_user: req.session.user_id
+      current_user: req.session.user_id,
     });
   } catch (error) {
     res.render("404", {
       logged_in: req.session.logged_in,
-      current_user: req.session.user_id
+      current_user: req.session.user_id,
     });
   }
 });
