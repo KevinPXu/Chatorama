@@ -28,7 +28,7 @@ User.init(
             type: DataTypes.STRING, 
             allowNull: false,
             validate: {
-                is: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                is: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%*?&=+])[A-Za-z\d@$!#%*?&=+]{6,}$/,
                 len: [6]
             }
         },
