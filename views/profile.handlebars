@@ -2,6 +2,19 @@
 <h1 class="text-center">{{profile_info.username}}</h1>
 
 <div class="d-flex flex-column description">
-    <h3 class="text-center">Description</h3>
-    <p class="text-center w-50 align-self-center">{{profile_info.description}}</p>
+  <h3 class="text-center">Description</h3>
+  <p class="text-center w-50 align-self-center">{{profile_info.description}}</p>
 </div>
+
+{{#each chatrooms as |chatroom|}}
+  <div class="card mb-3 mt-3">
+    <h5 class="card-header">{{name}}</h5>
+    <div class="card-body">
+      <p class="card-text">Users Chatting: {{numUsers}}</p>
+      <p class="card-text">Latest Message:
+        {{format_date_time latestMessageDate}}</p>
+      <button class="delete-btn" type="submit" data-chatid="{{id}}" value="Delete">Delete</button>
+    </div>
+  </div>
+{{/each}}
+<script src="/js/profile.js"></script>
