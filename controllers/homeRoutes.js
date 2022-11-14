@@ -158,11 +158,23 @@ router.get("/profile/:userid", auth, async (req, res) => {
       chatrooms[i].numUsers = userChat.length;
     }
 
+    let isThisUser = false;
+
+    if (req.params.userid == req.session.user_id) {
+      for (let i = 0; i < chatrooms.length; i++) {
+        chatrooms[i].isThisUser = true;
+      }
+
+      isThisUser = true;
+    }
+
+
     res.render("profile", {
       profile_info,
       chatrooms,
       logged_in: req.session.logged_in,
       current_user: req.session.user_id,
+      is_this_user: isThisUser,
     });
   } catch (error) {
     res.render("404", {

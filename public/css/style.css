@@ -282,25 +282,25 @@ body {
 }
 
 .profile-picture {
-  height: 200px;
-  width: 200px;
+  height: 175px;
+  width: 175px;
   border-radius: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: table;
 }
 
 .description {
   background-color: var(--description);
-  width: 50%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   border-radius: 10px;
   padding-top: 10px;
-  min-height: 250px;
+  min-height: 150px;
 }
 
 @media (max-width: 768px) {
@@ -311,7 +311,7 @@ body {
     width: 75%;
   }
   .description {
-    width: 90%;
+    width: 95%;
   }
 }
 
@@ -320,6 +320,6 @@ body {
     max-width: 60%;
   }
   .description {
-    width: 75%;
+    width: 88%;
   }
 }

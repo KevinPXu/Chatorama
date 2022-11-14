@@ -6,6 +6,7 @@
   <p class="text-center w-50 align-self-center">{{profile_info.description}}</p>
 </div>
 
+<div class="container overflow-auto scrollable-content scroll-body chatroom-list">
 {{#each chatrooms as |chatroom|}}
   <div class="card mb-3 mt-3">
     <h5 class="card-header">{{name}}</h5>
@@ -13,8 +14,13 @@
       <p class="card-text">Users Chatting: {{numUsers}}</p>
       <p class="card-text">Latest Message:
         {{format_date_time latestMessageDate}}</p>
+      {{#if isThisUser}}
       <button class="delete-btn" type="submit" data-chatid="{{id}}" value="Delete">Delete</button>
+      {{/if}}
     </div>
   </div>
 {{/each}}
+</div>
+{{#if is_this_user}}
 <script src="/js/profile.js"></script>
+ {{/if}}
