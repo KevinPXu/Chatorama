@@ -13,6 +13,13 @@ Where our app differs from most messaging apps is the functionality that allows 
 
 ## Features
 
+- User Login and Logout (Session and Cookies)
+- Functional API calls
+- Send and recieve messages in real-time
+- Fully Responsive
+
+## Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
@@ -21,7 +28,32 @@ Where our app differs from most messaging apps is the functionality that allows 
 
 ## Technologies Used
 
+### FrontEnd
+- HTML
+- CSS
+- Javascript 
+- Fetch
+- Web API
+- CSS Framework - Bootstrap
+- Wireframe Tool - Figma
+- Session Storage
+
+### BackEnd
+- Node
+- NPM
+- Express
+- Express-sessions
+- MySQL
+- Sequelize ORM  
+- Bcrypt
+- User Authentication - validation
+- Handlebars
+- Socket.io
+
+
 ## User Stories
+
+
 
 ## Installation
 
@@ -32,9 +64,11 @@ Where our app differs from most messaging apps is the functionality that allows 
 
 ## Usage
 
-## Learning Objectives
-
 ## Collaborators
+
+- [Angel Cervantes](https://github.com/Angellyn218)
+- [Carlos Martinez](https://github.com/carmart7)
+- [Kevin Xu](https://github.com/KevinPXu)
 
 ## License
 
