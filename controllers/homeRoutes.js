@@ -163,6 +163,7 @@ router.get("/profile/:userid", auth, async (req, res) => {
       chatrooms,
       logged_in: req.session.logged_in,
       current_user: req.session.user_id,
+      is_this_user: req.params.userid == req.session.user_id
     });
   } catch (error) {
     res.render("404", {
