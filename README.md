@@ -50,10 +50,31 @@ Where our app differs from most messaging apps is the functionality that allows 
 - Handlebars
 - Socket.io
 
-
 ## User Stories
 
+As a user, I want to load the homepage and see all the resulting chat rooms created previously, When I click on a chatroom and I am not logged in, it will take me to a login screen.
 
+![user clicks on chatroom and is brought to login](assets/Homepage-login.gif)
+
+Once I login, I am taken back to the home page and am able to select a chatroom to join. Once I click on the chat room, I am taken to that specific room and can immediately start chatting
+
+![user logs in and joins chatroom](assets/Login-chatroom.gif)
+
+When I am logged in, I want to be able to create a new chat room on the homescreen and have others be able to join from the homepage.
+
+![user creates new chatroom](assets/CreateChatroom.gif)
+
+When I do not have an account yet, I want to be able to click on the signup and create an account with a profile.
+
+![user sign-up](assets/chatorama-front-end-signup.gif)
+
+As a logged in user, I want to be able to send a message so that I can communicate with other users in the chat room
+
+![user sends message](assets/chatorama-send-message.gif)
+
+As a logged in user, I want to see messages populate the page as messages are sent in so that I don’t have to refresh every time I think a message might have been sent
+
+![user sends and recieves messages](assets/chatorama-dynamic-rendering.gif)
 
 ## Installation
 
@@ -63,6 +84,10 @@ Where our app differs from most messaging apps is the functionality that allows 
 - Deploy to your preferred hosting service.
 
 ## Usage
+
+This repository can be used on both desktop and mobile after the installation process is followed.
+
+If you would like to use an already deployed version of Chatorama, visit [our website](https://morning-ridge-00973.herokuapp.com/).
 
 ## Collaborators
 
